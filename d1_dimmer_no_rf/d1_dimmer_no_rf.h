@@ -88,8 +88,8 @@ public:
     state->current_values_as_binary(&binary);
     state->current_values_as_brightness(&brightness);
 
-    // Convert ESPHome's brightness (0-1) to the device's internal brightness (0-64)
-    const int calculatedBrightness = round(brightness * 64);
+    // Convert ESPHome's brightness (0-1) to the device's internal brightness (0-100)
+    const int calculatedBrightness = round(brightness * 100);
 
     ESP_LOGD("custom", "Interpreting brightness %f as %d", brightness, calculatedBrightness);
     control_dimmer(binary, calculatedBrightness);
