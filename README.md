@@ -1,6 +1,11 @@
 # Sonoff-D1-Dimmer
 This project contains three subprojects for different use cases. Please read them below in order to tell which project best fits your use case.
 
+# Please Read!
+There is now a [native ESPHome compontent](https://esphome.io/components/light/sonoff_d1.html) for the Sonoff D1 Dimmer. It is recommended to use the native compontent rather than this custom implementation.
+
+---
+
 # Note About Project
 This project is still heavily a work-in-progress. If you find an problem, please [open a new issue](https://github.com/JeffResc/Sonoff-D1-Dimmer/issues/new) and ensure to include the ESPHome logs as well.
 
