@@ -62,6 +62,9 @@ public:
       //                     0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16
       uint8_t buffer[17] = {0xAA, 0x55, 0x01, 0x04, 0x00, 0x0A, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00};
 
+      lastBinary = binary;
+      lastBrightness = brightness;
+      
       buffer[6] = binary;
       buffer[7] = brightness;
 
@@ -87,6 +90,11 @@ public:
 
     // Convert ESPHome's brightness (0-1) to the device's internal brightness (0-100)
     const int calculatedBrightness = round(brightness * 100);
+    
+    if (calculatedBrightness == 0) 
+    {
+      binary = 0;
+    }
 
     ESP_LOGD("custom", "Interpreting brightness %f as %d", brightness, calculatedBrightness);
     control_dimmer(binary, calculatedBrightness);
